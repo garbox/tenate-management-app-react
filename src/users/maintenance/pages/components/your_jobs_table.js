@@ -25,19 +25,24 @@ function YourJobsTable({ data, isLoading}) {
           <table className="table table-striped table-bordered">
             <thead className="table">
               <tr>
+                <th>Ticket #</th>
                 <th>Type</th>
                 <th>Maintenance Description</th>
                 <th>Placed By</th>
+                <th>User Type</th>
                 <th>Property Address</th>
                 <th colSpan={2}>Status</th>
               </tr>
             </thead>
             <tbody>
+              {console.log(data)}
               {data.map((maintenance) => (
                 <tr key={maintenance.id}>
+                  <td>{maintenance.id|| 'N/A'}</td>
                   <td>{maintenance?.type?.type || 'N/A'}</td>
                   <td>{maintenance?.description || 'N/A'}</td>
                   <td>{maintenance?.user?.name || 'N/A'}</td>
+                  <td>{maintenance?.user?.role?.name || 'N/A'}</td>
                   <td>{maintenance?.property?.address || 'N/A'}</td>
                   <td>{maintenance?.status?.name || 'N/A'}</td>
                 </tr>

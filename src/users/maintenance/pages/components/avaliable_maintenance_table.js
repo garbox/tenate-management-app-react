@@ -25,6 +25,7 @@ function AvailableMaintenanceTable({ data, isLoading}) {
           <table className="table table-striped table-bordered">
             <thead className="table">
               <tr>
+                <th>Ticket #</th>
                 <th>Type</th>
                 <th>Maintenance Description</th>
                 <th>Placed By</th>
@@ -35,6 +36,7 @@ function AvailableMaintenanceTable({ data, isLoading}) {
             <tbody>
               {data.map((maintenance) => (
                 <tr key={maintenance.id}>
+                  <td>{maintenance.id || 'N/A'}</td>
                   <td>{maintenance?.type?.type || 'N/A'}</td>
                   <td>{maintenance?.description || 'N/A'}</td>
                   <td>{maintenance?.user?.name || 'N/A'}</td>

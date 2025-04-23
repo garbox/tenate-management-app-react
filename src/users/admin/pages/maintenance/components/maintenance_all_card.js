@@ -24,6 +24,7 @@ function MaintenanceCardAll({data, isLoading}) {
               <table className="table table-striped table-bordered">
                 <thead className="table">
                   <tr>
+                    <th>Ticket #</th>
                     <th>Type</th>
                     <th>Type Description</th>
                     <th>Maintenance Description</th>
@@ -35,6 +36,7 @@ function MaintenanceCardAll({data, isLoading}) {
                 <tbody>
                 {data.map((maintenance, index) => (
                     <tr key={index}>
+                    <td>{maintenance.id || 'N/A'}</td>
                     <td>{maintenance?.type?.type || 'N/A'}</td>
                     <td>{maintenance?.type?.description || 'N/A'}</td>
                     <td>{maintenance?.description || 'N/A'}</td>
