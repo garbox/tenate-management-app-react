@@ -24,8 +24,8 @@ function TenantInfo ({ data, isLoading}) {
           <div key={index} className="mb-3">
             <p><strong>Name:</strong> {agreement.user?.name || 'N/A'}</p>
             <p><strong>Email:</strong> {agreement.user?.email || 'N/A'}</p>
-            <p><strong>Rent:</strong> ${agreement.rent || 'N/A'}</p>
-            <p><strong>Security Deposit:</strong> ${agreement.security_deposit || 'N/A'}</p>
+            <p><strong>Rent:</strong> ${agreement.rent/100 || 'N/A'}</p>
+            <p><strong>Security Deposit:</strong> ${agreement.security_deposit/100 || 'N/A'}</p>
             <p><strong>Lease Start Date:</strong> {agreement.start_date || 'N/A'}</p>
             <p><strong>Lease End Date:</strong> {agreement.end_date || 'N/A'}</p>
             <p><strong>Payment Status:</strong> <span className="badge rounded-pill bg-danger">Late</span></p>

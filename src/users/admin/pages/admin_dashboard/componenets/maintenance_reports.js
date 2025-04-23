@@ -41,7 +41,7 @@ function MaintenanceReport() {
               <strong>{row.status.name}:</strong> {row.count} 
             </p>
           ))
-        };
+        }
       </div>
     </div>
   );

@@ -33,7 +33,7 @@ function MaintenanceRequestExspenses({ request , type, isLoading}) {
                   <tr key={index}>
                     <td>{request?.assigned_to?.name || 'N/A'}</td>
                     <td>{type?.type || 'N/A'}</td>
-                    <td>${expense.expense || 'N/A'}</td>
+                    <td>${expense.expense/100 || 'N/A'}</td>
                     <td>{expense.note || 'N/A'}</td>
                   </tr>
                 ))}

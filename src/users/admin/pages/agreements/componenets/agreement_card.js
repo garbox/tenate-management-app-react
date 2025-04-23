@@ -34,8 +34,8 @@ function AgreementCard ({agreement, isLoading}){
           </thead>
           <tbody>
             <tr>
-              <td>${agreement.security_deposit}</td>
-              <td>${agreement.rent}</td>
+              <td>${agreement.security_deposit/100}</td>
+              <td>${agreement.rent/100}</td>
               <td>{agreement.start_date}</td>
               <td>{agreement.end_date}</td>
                 <td className="text-end">
