@@ -1,6 +1,6 @@
 import React from 'react';
 
-function LoginForm ({ handleSubmit, responseData }) {
+function LoginForm ({ handleSubmit, responseData, isSubmitting }) {
   return (
     <div className="container mt-5" style={{ maxWidth: '400px' }}>
       <div className="card">
@@ -27,7 +27,14 @@ function LoginForm ({ handleSubmit, responseData }) {
                 placeholder="Enter your password"
               />
             </div>
-            <button type="submit" className="btn btn-primary w-100">Login</button>
+            {isSubmitting ? 
+              <button className="btn btn-primary w-100" type="button" disabled>
+                <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span className="visually"> Authenticating...</span>
+              </button>
+              : 
+              <button type="submit" className="btn btn-primary w-100">Login</button>
+            }
           </form>
           {responseData && (
             <div className="mt-3 alert alert-danger">

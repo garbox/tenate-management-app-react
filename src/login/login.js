@@ -5,10 +5,12 @@ import ApiCall from '../utilities/api-call';
 
 function LoginPage ({onUserChange}) {
   const [responseData, setResponseData] = useState(''); // Correctly destructure state and setter
+  const [isSubmitting , setIsSubmitting ] = useState(false); 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission
+    setIsSubmitting(true);
 
     // Get input field values
     const email = e.target.email.value;
@@ -23,6 +25,7 @@ function LoginPage ({onUserChange}) {
     const response = await ApiCall({method, endpoint, payload});
     if (response.message) {
       setResponseData(response.message);
+      setIsSubmitting(false);
     } 
     else {
       onUserChange(response); // Update user state in parent component
@@ -32,7 +35,7 @@ function LoginPage ({onUserChange}) {
 
   return (
     <div>
-      <LoginForm handleSubmit={handleSubmit} responseData={responseData} />
+      <LoginForm handleSubmit={handleSubmit} responseData={responseData} isSubmitting={isSubmitting} />
     </div>
   );
 };
