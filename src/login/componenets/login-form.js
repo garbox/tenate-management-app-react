@@ -27,10 +27,10 @@ function LoginForm ({ handleSubmit, responseData, isSubmitting }) {
                 placeholder="Enter your password"
               />
             </div>
-            {isSubmitting ? 
+            {isSubmitting ?   
               <button className="btn btn-primary w-100" type="button" disabled>
                 <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                <span className="visually"> Authenticating...</span>
+                <span className="visually"> Authenticating ...</span>
               </button>
               : 
               <button type="submit" className="btn btn-primary w-100">Login</button>
