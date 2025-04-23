@@ -11,24 +11,12 @@ function MaintenanceReport() {
   useEffect(() => {
     const fetchData = async () => {
       const method = 'GET';
-      const endpoint = '/maintenance/report/status'; 
-
-      try {
-        const response = await ApiCall({method, endpoint, token});
-        setResponseData(response);
-        
-      } 
-      catch (error) {
-        console.error('Error fetching data:', error);
-        setResponseData([]); // Set to an empty array on error
-      }
-      finally{
-        setIsLoading(false);
-      }
+      const endpoint = '/maintenance/report/status';
+      setResponseData(await ApiCall({method, endpoint, token, setIsLoading}));
     };
 
-    fetchData(); // Call the function to fetch data on page load
-  }, []);
+    fetchData();
+  }, []); 
 
     // Let LoadingData handle the loading, error, or no data state
     if (isLoading || (responseData && responseData.message) || !Array.isArray(responseData) || responseData.length === 0) {
