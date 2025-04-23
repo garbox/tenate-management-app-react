@@ -8,7 +8,7 @@ function PropertyTable({ data, isLoading }) {
   if (isLoading || (data && data.message) || !Array.isArray(data) || data.length === 0) {
     return (
       <LoadingData
-        title="Available Maintenance Request"
+        title="All Properties"
         data={data}
         isLoading={isLoading}
       />
