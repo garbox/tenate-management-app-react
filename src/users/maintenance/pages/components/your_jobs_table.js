@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import LoadingData from "../../../../utilities/loading_data";
 
 function YourJobsTable({ data, isLoading}) {
-  
+
   // Let LoadingData handle the loading, error, or no data state
   if (isLoading || !data || data.length === 0) {
     return (
@@ -35,7 +36,6 @@ function YourJobsTable({ data, isLoading}) {
               </tr>
             </thead>
             <tbody>
-              {console.log(data)}
               {data.map((maintenance) => (
                 <tr key={maintenance.id}>
                   <td>{maintenance.id|| 'N/A'}</td>
@@ -43,8 +43,12 @@ function YourJobsTable({ data, isLoading}) {
                   <td>{maintenance?.description || 'N/A'}</td>
                   <td>{maintenance?.user?.name || 'N/A'}</td>
                   <td>{maintenance?.user?.role?.name || 'N/A'}</td>
-                  <td>{maintenance?.property?.address || 'N/A'}</td>
+                  <td>{maintenance?.property?.address  || 'N/A'}</td>
                   <td>{maintenance?.status?.name || 'N/A'}</td>
+                  <td><Link to={`/maintience/job/${maintenance.id}`} className="btn btn-sm btn-primary">
+                        View
+                      </Link>
+                  </td>
                 </tr>
               ))}
             </tbody>
