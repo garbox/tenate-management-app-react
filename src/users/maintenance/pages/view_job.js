@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom';
 import ApiCall from "../../../utilities/api-call";
 import ViewJobTable from "./components/view_job_table";
-import { useParams } from 'react-router-dom';
 import ShowExpensesCard from "./components/show_expenses_card";
 import ExpensesCardForm from "./components/exspense_card_form";
 
@@ -55,6 +55,8 @@ function ViewJob() {
         <ShowExpensesCard  
           expensesData={responseData.expenses} 
           isLoading={isLoading}
+          user={user}
+          onSubmit={fetchData}
         />
         <ExpensesCardForm  
           type={typeData} 
