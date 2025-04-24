@@ -2,6 +2,7 @@ function LoadingData({ title, data, isLoading, col = 12, checkEmpty }) {
   // While loading
   if (isLoading) {
     return (
+      <>
       <div className={`card col-${col} border-0`}>
         <div className="card-header bg-dark text-white">
           <h5>{title}</h5>
@@ -12,12 +13,14 @@ function LoadingData({ title, data, isLoading, col = 12, checkEmpty }) {
           </div>
         </div>
       </div>
+      </>
     );
   }
 
   // If there's an error message
   if (data && data.message) {
     return (
+      <>
       <div className={`card col-${col} border-0`}>
         <div className="card-header bg-dark text-white">
           <h5>{title}</h5>
@@ -26,6 +29,7 @@ function LoadingData({ title, data, isLoading, col = 12, checkEmpty }) {
           <p className="alert alert-danger">{data.message}</p>
         </div>
       </div>
+      </>
     );
   }
 
@@ -34,6 +38,7 @@ function LoadingData({ title, data, isLoading, col = 12, checkEmpty }) {
 
   if (isEmpty) {
     return (
+      <>
       <div className={`card col-${col} border-0`}>
         <div className="card-header bg-dark text-white">
           <h5>{title}</h5>
@@ -42,6 +47,7 @@ function LoadingData({ title, data, isLoading, col = 12, checkEmpty }) {
           <p className="alert alert-info">No data available.</p>
         </div>
       </div>
+      </>
     );
   }
 
