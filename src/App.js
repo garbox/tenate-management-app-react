@@ -16,6 +16,7 @@ import ShowAgreement from './users/admin/pages/agreements/show_agreement';
 import MaintenanceRequestAvaliable from './users/maintenance/pages/maintenance_request_avaliable';
 import Middleware from './utilities/middleware';
 import YourJobs from './users/maintenance/pages/your_jobs';
+import ViewJob from './users/maintenance/pages/view_job';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -56,6 +57,7 @@ function App() {
                 <Route path="/admin/agreements/:id" element={<ShowAgreement />} />
                 <Route path="/maintience/reports" element={<MaintenanceRequestAvaliable />} />
                 <Route path="/maintience/jobs" element={<YourJobs />} />
+                <Route path="/maintience/job/:id" element={<ViewJob />} />
             </Route>
         </Routes>
     </Router>
