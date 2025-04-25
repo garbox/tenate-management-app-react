@@ -1,7 +1,6 @@
 import { useState } from "react";
 import ApiCall from "../../../../utilities/api-call";
 import LoadingData from "../../../../utilities/loading_data";
-import ExpenseTypeSelection from "./exspense_type_selection";
 
 
 
@@ -63,9 +62,6 @@ function ExpensesCardForm ({type, isLoading, maintId, user, onSubmit}){
                     name="note"
                     placeholder="Enter note"
                 />
-                </div>
-                <div className="mb-3">
-                    <ExpenseTypeSelection type={type} />
                 </div>
                 <div>
                     <button type="submit" className="btn btn-primary">Submit</button>
