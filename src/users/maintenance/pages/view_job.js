@@ -7,7 +7,6 @@ import ExpensesCardForm from "./components/exspense_card_form";
 
 function ViewJob() {
   const [responseData, setResponseData] = useState('');
-  const [typeData, setTypeData] = useState('');
   const [maintStatusData, setMaintStatusData] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
@@ -21,12 +20,6 @@ function ViewJob() {
   };
 
   useEffect(() => {
-    const fetchTypeData = async () => {
-        const method = 'GET';
-        const endpoint = `/maintenance/type`;
-        setTypeData(await ApiCall({ method, endpoint, token, setIsLoading}))
-      };
-
       const fetchMaintStaus = async () =>{
         const method = 'GET';
         const endpoint = `/maintenance/status`;
@@ -35,7 +28,6 @@ function ViewJob() {
   
     fetchData();
     fetchMaintStaus();
-    fetchTypeData();
   }, []);
 
   return (
@@ -44,8 +36,8 @@ function ViewJob() {
       <div className="row">
         <ViewJobTable
           data={responseData}
-          type={typeData}
           isLoading={isLoading}
+          user={user}
           maintStatusData={maintStatusData}
         />
       </div>
@@ -59,8 +51,6 @@ function ViewJob() {
           onSubmit={fetchData}
         />
         <ExpensesCardForm  
-          type={typeData} 
-          isLoading={isLoading} 
           maintId={id} 
           user={user} 
           onSubmit={fetchData}
