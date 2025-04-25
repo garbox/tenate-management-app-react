@@ -16,7 +16,7 @@ function AgreementCard ({agreement, isLoading}){
       
     return (
         <>
-        <div className="card col-12 border-0">
+        <div className="card col-12 border-0 shadow p-4 mt-5">
             <div className="card-header bg-dark text-light">                
                 <h5>Agreement</h5>
             </div>

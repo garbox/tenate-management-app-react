@@ -3,8 +3,8 @@ function LoadingData({ title, data, isLoading, col = 12, checkEmpty }) {
   if (isLoading) {
     return (
       <>
-      <div className={`card col-${col} border-0`}>
-        <div className="card-header bg-dark text-white">
+      <div className={`card col-${col} border-0 shadow p-4`}>
+        <div className="card-header bg-dark text-white ">
           <h5>{title}</h5>
         </div>
         <div className="card-body text-center">
@@ -21,7 +21,7 @@ function LoadingData({ title, data, isLoading, col = 12, checkEmpty }) {
   if (data && data.message) {
     return (
       <>
-      <div className={`card col-${col} border-0`}>
+      <div className={`card col-${col} border-0 shadow p-4`}>
         <div className="card-header bg-dark text-white">
           <h5>{title}</h5>
         </div>
@@ -39,7 +39,7 @@ function LoadingData({ title, data, isLoading, col = 12, checkEmpty }) {
   if (isEmpty) {
     return (
       <>
-      <div className={`card col-${col} border-0`}>
+      <div className={`card col-${col} border-0 shadow p-4`}>
         <div className="card-header bg-dark text-white">
           <h5>{title}</h5>
         </div>

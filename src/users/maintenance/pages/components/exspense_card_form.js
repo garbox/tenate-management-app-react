@@ -28,7 +28,7 @@ function ExpensesCardForm ({maintId, user, onSubmit}){
       };
 
     return (
-        <div className="card col-6 border-0">
+        <div className="card col-6 border-0 shadow p-4">
         <div className="card-header bg-dark text-white"><h5>Add Expenses</h5></div>
         <div className="card-body">
             <form onSubmit={handleSubmit}>

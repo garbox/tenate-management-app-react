@@ -31,7 +31,7 @@ function MaintenanceReport() {
     }
 
   return (
-    <div className="card col-4 border-0">
+    <div className="card col-4 border-0 shadow p-4">
       <div className="card-header bg-dark text-white">
         <h5>Maintenance Reports</h5>
       </div>

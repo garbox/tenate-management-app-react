@@ -17,7 +17,7 @@ function ViewJobTable({data, maintStatusData, user, isLoading}){
 
     return (
         <>
-            <div className="card col-12 border-0">
+            <div className="card col-12 border-0 shadow p-4">
                 <div className="card-header bg-dark text-white">
                         <h5 className="mb-0">Ticket: #{data.id}</h5>
                     </div>

@@ -25,7 +25,7 @@ function ShowExpensesCard({expensesData, isLoading, user, onSubmit}) {
     };
 
     return (
-        <div className="card col-6 border-0">
+        <div className="card col-6 border-0 shadow p-4">
             <div className="card-header bg-dark text-white"><h5>Current Expenses </h5></div>
             <div className="card-body">
                 <table className="table table-striped table-bordered">

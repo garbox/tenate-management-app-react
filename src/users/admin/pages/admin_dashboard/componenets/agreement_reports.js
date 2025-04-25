@@ -31,7 +31,7 @@ function AgreementReports() {
     }
 
   return (
-    <div className="card col-4 border-0">
+    <div className="card col-4 border-0 shadow p-4">
       <div className="card-header bg-dark text-white">
         <h5>Agreement Reports</h5>
       </div>

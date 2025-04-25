@@ -14,7 +14,7 @@ function MaintenanceRequestCard ({request, isLoading}) {
       }
 
     return (
-        <div className="card col-12 border-0 mt-5">
+        <div className="card col-12 border-0 mt-5 shadow p-4">
             <div className="card-header bg-dark text-white">
                 <h5>Property Details</h5>
             </div>

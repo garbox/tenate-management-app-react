@@ -15,7 +15,7 @@ function PropertyOwnerInfo ({ owner, isLoading}) {
   }
       
   return (
-    <div className="card col-12 col-lg-4 border-0 ">
+    <div className="card col-12 col-lg-4 border-0 shadow p-4">
       <div className="card-header bg-dark text-white">
         <h5>Property Owner Details</h5>
       </div>

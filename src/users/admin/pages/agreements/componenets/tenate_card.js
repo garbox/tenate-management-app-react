@@ -15,7 +15,7 @@ function TenateCard ({tenate, isLoading}){
 
     return (
         <>
-        <div className="card col-4 border-0">
+        <div className="card col-4 border-0 shadow p-4">
             <div className="card-header bg-dark text-light">            
                 <h5>Tenate Info</h5>
             </div>

@@ -42,7 +42,7 @@ function ManageUserCard({ data, roles, isLoading }) {
           />
         </form>
       </div>
-      <div className="card-body bg-light">
+      <div className="card-body bg-light shadow p-4">
         <div className="table-responsive">
           <table className="table table-striped table-bordered">
             <thead className="table">

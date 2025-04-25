@@ -29,7 +29,7 @@ function PropertyTable({ data, isLoading }) {
   ];
   
   return (
-    <div className="card">
+    <div className="card shadow p-4">
       <div className="card-header bg-dark text-white d-flex justify-content-between">
         <h5>All Properties</h5>
         <form className="d-flex">
