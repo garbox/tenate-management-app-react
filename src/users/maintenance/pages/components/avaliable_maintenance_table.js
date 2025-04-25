@@ -34,7 +34,7 @@ function AvailableMaintenanceTable({ data, isLoading, user, setResponseData }) {
 
   // If data is available and valid, render the table
   return (
-    <div className="card col-12 border-0">
+    <div className="card col-12 border-0 shadow p-4">
       <div className="card-header bg-dark text-white">
         <h5>Available Maintenance Request</h5>
       </div>
