@@ -1,10 +1,7 @@
 import LoadingData from "../../../../utilities/loading_data";
-import ExpensesCardForm from "./exspense_card_form";
-import ExpenseTypeSelection from "./exspense_type_selection";
-import ShowExpensesCard from "./show_expenses_card";
 import StatusSelection from "./status_selection";
 
-function ViewJobTable({data, maintStatusData, type, isLoading}){
+function ViewJobTable({data, maintStatusData, type, user, isLoading}){
     
   if (isLoading || !data || data.length === 0) {
     return (
@@ -47,7 +44,7 @@ function ViewJobTable({data, maintStatusData, type, isLoading}){
                                     {data?.property?.city || ''}<br />
                                     {data?.property?.state?.name || 'N/A'}</td>
                                 <td>
-                                    <StatusSelection data={data} maintStatusData={maintStatusData} isLoading={isLoading}/>
+                                    <StatusSelection data={data} maintStatusData={maintStatusData} isLoading={isLoading} user={user}/>
                                 </td>
                             </tr>
                         </tbody>
