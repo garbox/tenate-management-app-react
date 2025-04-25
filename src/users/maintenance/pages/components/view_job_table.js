@@ -1,7 +1,7 @@
 import LoadingData from "../../../../utilities/loading_data";
 import StatusSelection from "./status_selection";
 
-function ViewJobTable({data, maintStatusData, type, user, isLoading}){
+function ViewJobTable({data, maintStatusData, user, isLoading}){
     
   if (isLoading || !data || data.length === 0) {
     return (

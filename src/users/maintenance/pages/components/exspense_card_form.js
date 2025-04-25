@@ -4,20 +4,9 @@ import LoadingData from "../../../../utilities/loading_data";
 
 
 
-function ExpensesCardForm ({type, isLoading, maintId, user, onSubmit}){
+function ExpensesCardForm ({maintId, user, onSubmit}){
     
     const [responseData, setResponseData] = useState('');
-
-    if (isLoading || !type || type.length === 0) {
-        return (
-          <LoadingData
-            title="Add Expenses"
-            data={type}
-            isLoading={isLoading}
-            col={6}
-          />
-        );
-      }
 
       const handleSubmit = async (e) => {
         e.preventDefault(); // Prevent default form submission
