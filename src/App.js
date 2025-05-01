@@ -17,6 +17,8 @@ import MaintenanceRequestAvaliable from './users/maintenance/pages/maintenance_r
 import Middleware from './utilities/middleware';
 import YourJobs from './users/maintenance/pages/your_jobs';
 import ViewJob from './users/maintenance/pages/view_job';
+import MaintenanceRequestCard from './users/admin/pages/maintenance/components/maintenance_request_card';
+import MaintenanceRequestTenate from './users/tenate/pages/maintenance_request_tenate';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -47,6 +49,7 @@ function App() {
 
             <Route element={<Middleware />}>
                 <Route path="/profile" element={<Profile />} />
+                
                 <Route path="/admin/properties" element={<Properties />} />
                 <Route path="/admin/property/:id" element={<ShowProperty />} />
                 <Route path="/admin/mainteince/all" element={<MaintenanceAll />} />
@@ -55,9 +58,12 @@ function App() {
                 <Route path="/admin/maintenance/request/:id" element={< MaintenanceRequest />} />
                 <Route path="/admin/agreements" element={<AllAgreements />} />
                 <Route path="/admin/agreements/:id" element={<ShowAgreement />} />
+                
                 <Route path="/maintience/reports" element={<MaintenanceRequestAvaliable />} />
                 <Route path="/maintience/jobs" element={<YourJobs />} />
                 <Route path="/maintience/job/:id" element={<ViewJob />} />
+                
+                <Route path="/tenate/maintenance/request" element={<MaintenanceRequestTenate />} />
             </Route>
         </Routes>
     </Router>

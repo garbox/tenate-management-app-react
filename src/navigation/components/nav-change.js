@@ -36,7 +36,7 @@ function NaviChange({ user, onUserChange }) {
           <>
             <li><Link className="dropdown-item" to="/profile">Profile</Link></li>
             <li><Link className="dropdown-item" to="/tenate/payments">Payments</Link></li>
-            <li><Link className="dropdown-item" to="/tenate/maintence">Maintenance Requests</Link></li>
+            <li><Link className="dropdown-item" to="/tenate/maintenance/request">Maintenance Requests</Link></li>
           </>
         );
       case 4: // Property Owner
