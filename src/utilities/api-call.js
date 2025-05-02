@@ -1,42 +1,33 @@
-// single function for API calls. 
-const ApiCalls = async ({method, endpoint, token=null, payload = null, setIsLoading = null}) => {
+import axios from 'axios';
 
-    const apiUrl = process.env.REACT_APP_API_URL;
-    
-    const url = `${apiUrl.replace(/\/$/, '')}/${endpoint.replace(/^\//, '')}`;
-    
-    const options = {
-      method: method,
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      },
-    };
-    
-    if (payload !== null) {
-      options.body = JSON.stringify(payload);
-    }
-    
-    try {
-      const response = await fetch(url, options);
-  
-      // Check if the response is not OK
-      if (!response.ok) {
-        const errorData = await response.json(); // Parse error response as JSON
-        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
-      }
-      
-      return await response.json();
-    } 
-    catch (error) {
-      // Return a consistent JSON structure for errors
-      return { message: error.message };
-    } 
-    finally {      
-      if (typeof setIsLoading === 'function') {
-        setIsLoading(false);
-      }
-    }
+const ApiCalls = async ({ method, endpoint, token = null, payload = null, setIsLoading = null }) => {
+  const apiUrl = process.env.REACT_APP_API_URL;
+  const url = `${apiUrl.replace(/\/$/, '')}/${endpoint.replace(/^\//, '')}`;
+
+  const config = {
+    method: method.toLowerCase(),
+    url: url,
+    headers: {
+      'Content-Type': 'application/json',
+      ...(token && { Authorization: `Bearer ${token}` })
+    },
+    ...(payload && { data: payload })
   };
-  
-  export default ApiCalls;
+
+  try {
+    const response = await axios(config);
+    return response.data;
+  } 
+  catch (error) {
+    return {
+      message: error.response?.data?.message || error.message || 'Unknown error'
+    };
+  } 
+  finally {
+    if (typeof setIsLoading === 'function') {
+      setIsLoading(false);
+    }
+  }
+};
+
+export default ApiCalls;
