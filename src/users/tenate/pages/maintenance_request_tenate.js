@@ -33,7 +33,7 @@ function MaintenanceRequestTenate (){
         <div className="container mt-5" >
             <div className="row">
                 <MaintenanceRequestCard type={typeData} isLoading={isLoading} user={user} fetchRequest={fetchRequest}/>
-                <CurrentMaintenenaceRequest isLoading={isLoading} responseData={responseData}/>
+                <CurrentMaintenenaceRequest isLoading={isLoading} responseData={responseData} fetchRequest={fetchRequest}/>
             </div>
         </div>
         </>

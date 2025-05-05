@@ -1,7 +1,10 @@
+import { useState } from "react";
+import ApiCall from "../../../../utilities/api-call";
 import LoadingData from "../../../../utilities/loading_data";
 
-function CurrentMaintenenaceRequest ({responseData, isLoading}){
-   
+function CurrentMaintenenaceRequest ({responseData, isLoading, fetchRequest}){
+    const [deleting, setDeleting] = useState(false);
+
     if (isLoading || !responseData || responseData.length === 0 || responseData.message) {
         return (
           <LoadingData
@@ -13,6 +16,24 @@ function CurrentMaintenenaceRequest ({responseData, isLoading}){
         );
       }
     
+      const handleDelete = async (request_id) => {
+        setDeleting(true);
+
+        try {
+            const method = 'DELETE';
+            const endpoint = `maintenance/request/${request_id}`;
+
+            await ApiCall({ method, endpoint });
+            
+            fetchRequest();
+            }
+            catch (error) {
+                console.error('Error deleting maintenance request:', error);
+            } 
+            finally {
+                setDeleting(false);
+            }
+    };
 
 
     return (
@@ -37,7 +58,19 @@ function CurrentMaintenenaceRequest ({responseData, isLoading}){
                                     <td>{data.type.type}</td>
                                     <td>{data.description}</td>
                                     <td>{data.status.name}</td>
-                                    <td><button className="btn btn-sm btn-outline-danger">Remove</button></td>
+                                    <td>
+                                        <button 
+                                            onClick={() => handleDelete(data.id)} 
+                                            className="btn btn-sm btn-outline-danger"
+                                            disabled={deleting}
+                                        >
+                                            {deleting ? (
+                                                <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                            ) : (
+                                                'Remove'
+                                            )}
+                                        </button>
+                                    </td>                               
                                 </tr>
                             )}
                         </tbody>
