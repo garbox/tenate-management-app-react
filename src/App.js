@@ -17,8 +17,9 @@ import MaintenanceRequestAvaliable from './users/maintenance/pages/maintenance_r
 import Middleware from './utilities/middleware';
 import YourJobs from './users/maintenance/pages/your_jobs';
 import ViewJob from './users/maintenance/pages/view_job';
-import MaintenanceRequestCard from './users/admin/pages/maintenance/components/maintenance_request_card';
 import MaintenanceRequestTenate from './users/tenate/pages/maintenance_request_tenate';
+import Payment from './users/tenate/pages/payment';
+import OwnerProperties from './users/owner/pages/owner_properties';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -64,6 +65,10 @@ function App() {
                 <Route path="/maintience/job/:id" element={<ViewJob />} />
                 
                 <Route path="/tenate/maintenance/request" element={<MaintenanceRequestTenate />} />
+                <Route path="/tenate/payment" element={<Payment />} />
+
+                <Route path="/owner/properties" element={<OwnerProperties />} />
+                <Route path="/owner/property/:id" element={<ShowProperty />} />
             </Route>
         </Routes>
     </Router>

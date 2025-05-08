@@ -35,7 +35,7 @@ function NaviChange({ user, onUserChange }) {
         return (
           <>
             <li><Link className="dropdown-item" to="/profile">Profile</Link></li>
-            <li><Link className="dropdown-item" to="/tenate/payments">Payments</Link></li>
+            <li><Link className="dropdown-item" to="/tenate/payment">Payments</Link></li>
             <li><Link className="dropdown-item" to="/tenate/maintenance/request">Maintenance Requests</Link></li>
           </>
         );
