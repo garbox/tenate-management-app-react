@@ -17,17 +17,9 @@ function ShowAgreement (){
       const fetchData = async () => {
         const method = 'GET';
         const endpoint = `agreement/${id}`;
-        
-        try {
-          const response = await ApiCall({method, endpoint, token});
-          response.message ? setResponseData(response) :setResponseData(response);
-        } 
-        catch (error) {
-          console.error('Error fetching data:', error);
-        }
-        finally{
-          setIsLoading(false)
-        }
+        setResponseData(await ApiCall({method, endpoint, token, setIsLoading}));    
+        console.log(responseData.owner);
+              
       };
   
       fetchData();
@@ -40,7 +32,7 @@ function ShowAgreement (){
                 <div className="row">
                     <PropertyCard property={responseData?.property} isLoading={isLoading}/>
                     <TenateCard  tenate={responseData?.user} isLoading={isLoading}/>
-                    <OwnerCard owner={responseData?.property?.owner} isLoading={isLoading}/>
+                    <OwnerCard owner={responseData?.property.owner} isLoading={isLoading}/>
                     <AgreementCard agreement={responseData} isLoading={isLoading}/>
                 </div>
             </div>

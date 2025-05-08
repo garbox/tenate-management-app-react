@@ -20,13 +20,13 @@ function OwnerCard ({owner, isLoading}){
                 <h5>Property Owner Info</h5>
             </div>
             <div className="card-body">
-                <p><strong>Name:</strong> {owner.name || "N/A"}</p>
-                <p><strong>Email:</strong> {owner.email || "N/A"}</p>
-                <p><strong>Phone:</strong> {owner.phone || "N/A"}</p>
-                <p><strong>DBA:</strong> {owner.dba || "N/A"}</p>
-                <p><strong>Address:</strong> {owner.address || "N/A"}</p>
-                <p><strong>Zip:</strong> {owner.zip || "N/A"}</p>
-                <p><strong>State:</strong> {owner.state.name || "N/A"}</p>
+                <p><strong>Name:</strong> {owner?.name || "N/A"}</p>
+                <p><strong>Email:</strong> {owner?.email || "N/A"}</p>
+                <p><strong>Phone:</strong> {owner?.property_owner?.phone || "N/A"}</p>
+                <p><strong>DBA:</strong> {owner?.property_owner?.dba || "N/A"}</p>
+                <p><strong>Address:</strong> {owner?.property_owner?.address || "N/A"}</p>
+                <p><strong>Zip:</strong> {owner?.property_owner?.zip || "N/A"}</p>
+                <p><strong>State:</strong> {owner?.property_owner?.state.name || "N/A"}</p>
 
             </div>
         </div>

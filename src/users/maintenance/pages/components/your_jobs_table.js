@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import LoadingData from "../../../../utilities/loading_data";
 
 function YourJobsTable({ data, isLoading}) {
+console.log(data);
 
   // Let LoadingData handle the loading, error, or no data state
   if (isLoading || !data || data.length === 0) {

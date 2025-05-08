@@ -18,30 +18,22 @@ const ShowProperty = () => {
     const fetchData = async () => {
       const method = 'GET';
       const endpoint = `property/${id}`;
-      try {
-        const response = await ApiCall({ method, endpoint, token });
-        setResponseData(response);
-      } 
-      catch (error) {
-        console.error('Error fetching data:', error);
-        setResponseData({ message: 'Failed to fetch data.' });
-      } 
-      finally {
-        setIsLoading(false);
-      }
+      setResponseData(await ApiCall({ method, endpoint, token, setIsLoading }))
+      console.log(responseData);
+      
     };
-  
+
     fetchData();
   }, [id]);
 
   return (
     <div className='container mt-5'>
-        <div className='row'>
-            <PropertyInfo property={responseData} isLoading={isLoading} />
-            <PropertyOwnerInfo owner={responseData.owner} isLoading={isLoading}/>
-            <TenantInfo data={responseData} isLoading={isLoading}/>
-            <MaintenanceCard maintenances={responseData.maintenances} isLoading={isLoading}/>
-        </div>
+      <div className='row'>
+        <PropertyInfo property={responseData} isLoading={isLoading} />
+        <PropertyOwnerInfo owner={responseData.owner} isLoading={isLoading} />
+        <TenantInfo data={responseData} isLoading={isLoading} />
+        <MaintenanceCard maintenances={responseData.maintenances} isLoading={isLoading} />
+      </div>
     </div>
 
   );
