@@ -19,8 +19,6 @@ const ShowProperty = () => {
       const method = 'GET';
       const endpoint = `property/${id}`;
       setResponseData(await ApiCall({ method, endpoint, token, setIsLoading }))
-      console.log(responseData);
-      
     };
 
     fetchData();
