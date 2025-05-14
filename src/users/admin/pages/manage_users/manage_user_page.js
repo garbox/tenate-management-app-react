@@ -14,30 +14,13 @@ function ManageUserPage({ onUserChange }) {
         const fetchUsersData = async () => {
             const method = 'GET';
             const endpoint = '/user'; // Replace with your API endpoint
-            setResponseData(await ApiCall({ method, endpoint, token, setIsLoading }));
+            setUserResponseData(await ApiCall({ method, endpoint, token, setIsLoading }));
         };
 
         const fetchRoleData = async () => {
             const method = 'GET';
             const endpoint = '/role'; // Replace with your API endpoint
-
-
-            try {
-                const response = await ApiCall({ method, endpoint, token });
-                if (response.message) {
-                    setRoleResponseData(response);
-                }
-                else {
-                    setRoleResponseData(response);
-                }
-            }
-            catch (error) {
-                console.error('Error fetching data:', error);
-                setRoleResponseData('Failed to fetch data.');
-            }
-            finally {
-                setIsLoading(false);
-            }
+            setRoleResponseData(await ApiCall({ method, endpoint, token, setIsLoading }));
         };
 
         fetchUsersData();
