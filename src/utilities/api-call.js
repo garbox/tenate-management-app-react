@@ -19,9 +19,8 @@ const ApiCalls = async ({ method, endpoint, token = null, payload = null, setIsL
     return response.data;
   } 
   catch (error) {
-    return {
-      message: error.response?.data?.message || error.message || 'Unknown error'
-    };
+    
+    return error.message || error.message || 'Unknown error';
   } 
   finally {
     if (typeof setIsLoading === 'function') {
