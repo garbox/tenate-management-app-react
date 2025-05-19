@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-    CardElement,
-    AddressElement,
-    useStripe,
-    useElements,
-} from "@stripe/react-stripe-js";
+import { CardElement, useStripe, useElements, } from "@stripe/react-stripe-js";
 import ApiCall from "../../../../utilities/api-call";
 
 function CheckoutForm({ user }) {
@@ -15,7 +10,7 @@ function CheckoutForm({ user }) {
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
 
-    const token = user.token;
+    const token = user?.token;
 
     useEffect(() => {
         if (user?.latest_agreement?.rent) {
@@ -51,25 +46,29 @@ function CheckoutForm({ user }) {
                 },
             });
 
-            if (response?.message === "Payment successful!") {
-                setMessage("✅ Payment successful!");
+            if (response === true) {
+                setMessage("Payment successful!");
                 cardElement.clear();
-            } else {
-                const errorMsg = response?.error || "❌ Payment failed";
-                setMessage(errorMsg);
+                setAmount(0);
             }
-        } catch (err) {
+
+            else {
+                setMessage(response.message || "Payment failed");
+            }
+        }
+        catch (err) {
+
             setMessage(`❌ ${err.message || "Payment failed. Please try again."}`);
-        } finally {
+        }
+        finally {
             setLoading(false);
         }
     };
 
     return (
-        <div className="container mt-5">
-            <div className="card col-6">
+            <div className="card col-6 p-4 shadow border-0">
                 <div className="card-header bg-dark text-white">
-                    <h4 className="mb-0">Checkout</h4>
+                    <h5>Checkout</h5>
                 </div>
                 <div className="card-body">
                     <form onSubmit={handleSubmit}>
@@ -83,21 +82,20 @@ function CheckoutForm({ user }) {
 
                         <button
                             type="submit"
-                            className="btn btn-primary"
+                            className="btn btn-primary w-100"
                             disabled={!stripe || loading}
                         >
                             {loading ? "Processing..." : "Pay Now"}
                         </button>
 
                         {message && (
-                            <div className="mt-3 alert alert-info" role="alert">
+                            <div className="mt-3 alert alert-success" role="alert">
                                 {message}
                             </div>
                         )}
                     </form>
                 </div>
             </div>
-        </div>
     );
 }
 
