@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import LoadingData from '../../../../../utilities/loading_data';
 
 function AgreementCard ({agreement, isLoading}){
-
+  
   if (isLoading || !agreement || agreement.length === 0 || agreement.message) {
     return (
       <LoadingData

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import PropertyCard from "./componenets/property_card";
 import AgreementCard from "./componenets/agreement_card";
-import TenateCard from "./componenets/tenate_card";
+import TenantCard from "./componenets/tenant_card";
 import OwnerCard from "./componenets/owner_card";
 import ApiCall from "../../../../utilities/api-call";
 
@@ -22,15 +22,15 @@ function ShowAgreement() {
 
         fetchData();
     }, [id]);
-
+    
 
     return (
         <>
             <div className="container mt-5">
                 <div className="row">
                     <PropertyCard property={responseData?.property} isLoading={isLoading} />
-                    <TenateCard tenate={responseData?.user} isLoading={isLoading} />
-                    <OwnerCard owner={responseData?.property.owner} isLoading={isLoading} />
+                    <TenantCard tenant={responseData?.tenant} isLoading={isLoading} />
+                    <OwnerCard owner={responseData?.property?.owner} isLoading={isLoading} />
                     <AgreementCard agreement={responseData} isLoading={isLoading} />
                 </div>
             </div>

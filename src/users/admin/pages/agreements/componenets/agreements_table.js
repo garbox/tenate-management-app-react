@@ -2,20 +2,20 @@ import { Link } from 'react-router-dom';
 import LoadingData from "../../../../../utilities/loading_data"
 
 function AgreementTable({ data, isLoading }) {
-        if (isLoading || !data || data.length === 0 || data.message) {
-            return (
-            <LoadingData
-                title="Make A Request"
-                data={data}
-                isLoading={isLoading}
-                col={12}
-            />
-            );
-        }
+  if (isLoading || !data || data.length === 0 || data.message) {
+    return (
+      <LoadingData
+        title="All Agreements"
+        data={data}
+        isLoading={isLoading}
+        col={12}
+      />
+    );
+  }
 
   // Define custom headers and their corresponding keys in the data
   const headers = [
-    { label: 'Tenate', key: 'user.name' },
+    { label: 'Tenant', key: 'user.name' },
     { label: 'Property', key: 'property.address' },
     { label: 'Deposit', key: 'security_deposit' },
     { label: 'Rent', key: 'rent' },
@@ -71,42 +71,6 @@ function AgreementTable({ data, isLoading }) {
               </tbody>
             </table>
           </div>
-        </div>
-      </div>
-      <div className='card p-4 col-4 border-0 shadow mt-5'>
-        <div className='card-header bg-dark text-white'>
-          <h5>Create new agreement</h5>
-        </div>
-        <div className='card-body'>
-          <form>
-            <div className="mb-3">
-              <label className="form-label">Tenant</label>
-              <input type="text" className="form-control"/>
-            </div>
-
-            <div className="mb-3">
-              <label className="form-label">Start Date</label>
-              <input type="date" className="form-control"/>
-            </div>
-
-            <div className="mb-3">
-              <label className="form-label">End Date</label>
-              <input type="date" className="form-control"/>
-            </div>
-
-            <div className="mb-3">
-              <label className="form-label">Rent</label>
-              <input type="number" className="form-control"/>
-            </div>
-
-            <div className="mb-3">
-              <label className="form-label">Deposit</label>
-              <input type="number" className="form-control"/>
-            </div>
-
-            <button type="submit" className="btn btn-primary w-100">Create</button>
-          </form>
-
         </div>
       </div>
     </>

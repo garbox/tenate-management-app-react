@@ -20,6 +20,8 @@ import ViewJob from './users/maintenance/pages/view_job';
 import MaintenanceRequestTenate from './users/tenate/pages/maintenance_request_tenate';
 import Payment from './users/tenate/pages/payment';
 import OwnerProperties from './users/owner/pages/owner_properties';
+import CreateAgreement from './users/admin/pages/agreements/create_agreement';
+import CreateProperty from './users/admin/pages/properties/create_property';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -59,6 +61,8 @@ function App() {
                 <Route path="/admin/maintenance/request/:id" element={< MaintenanceRequest />} />
                 <Route path="/admin/agreements" element={<AllAgreements />} />
                 <Route path="/admin/agreements/:id" element={<ShowAgreement />} />
+                <Route path="/admin/agreement/create" element={<CreateAgreement />} /> 
+                <Route path="/admin/property/create" element={<CreateProperty />} /> 
                 
                 <Route path="/maintience/reports" element={<MaintenanceRequestAvaliable />} />
                 <Route path="/maintience/jobs" element={<YourJobs />} />

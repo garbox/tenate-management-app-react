@@ -1,7 +1,7 @@
 import LoadingData from "../../../../../utilities/loading_data";
 
 function OwnerCard ({owner, isLoading}){
-
+    
     if (isLoading || !owner || owner.length === 0 || owner.message) {
         return (
           <LoadingData
