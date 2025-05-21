@@ -17,7 +17,7 @@ function NonRenewalAddendum({ showAmendments, toggleAmendment }) {
                 <div className="ps-4 mt-2">
                     <div className="mb-2">
                         <label className="form-label">Non-Renewal Notice Period</label>
-                        <input type="number" name="noticeRenewal" id="noticeRenewal" className="form-control" value={30} disabled />
+                        <input type="number" name="non_renewal.notice_length" id="non_renewal.notice_length" className="form-control" value={30} readOnly />
                     </div>
                 </div>
             )}

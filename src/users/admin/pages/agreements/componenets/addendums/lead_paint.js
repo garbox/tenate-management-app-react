@@ -21,8 +21,8 @@ function LeadPaintAddendum({ showAmendments, toggleAmendment }) {
                             <input
                                 className="form-check-input"
                                 type="radio"
-                                name="leadPaint"
-                                value="yes"
+                                name="lead_paint.built_before_1978"
+                                value='1'
                             />
                             <label className="form-check-label">Yes</label>
                         </div>
@@ -30,8 +30,8 @@ function LeadPaintAddendum({ showAmendments, toggleAmendment }) {
                             <input
                                 className="form-check-input"
                                 type="radio"
-                                name="leadPaint"
-                                value="no"
+                                name="lead_paint.built_before_1978"
+                                value="0"
                             />
                             <label className="form-check-label">No</label>
                         </div>

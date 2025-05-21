@@ -22,9 +22,9 @@ function PetAddendum({ showAmendments, toggleAmendment, petsAllowed, handlePetsA
                                 className="form-check-input"
                                 type="radio"
                                 id="petsAllowedYes"
-                                name="petsAllowed"
-                                value="yes"
-                                checked={petsAllowed === "yes"}
+                                name="pet.pets_allowed"
+                                value="1"
+                                checked={petsAllowed === "1"}
                                 onChange={handlePetsAllowedChange}
                             />
                             <label className="form-check-label" htmlFor="petsAllowedYes">
@@ -36,9 +36,9 @@ function PetAddendum({ showAmendments, toggleAmendment, petsAllowed, handlePetsA
                                 className="form-check-input"
                                 type="radio"
                                 id="petsAllowedNo"
-                                name="petsAllowed"
-                                value="no"
-                                checked={petsAllowed === "no"}
+                                name="pet.pets_allowed"
+                                value="0"
+                                checked={petsAllowed === "0"}
                                 onChange={handlePetsAllowedChange}
                             />
                             <label className="form-check-label" htmlFor="petsAllowedNo">
@@ -47,7 +47,7 @@ function PetAddendum({ showAmendments, toggleAmendment, petsAllowed, handlePetsA
                         </div>
                     </div>
 
-                    {petsAllowed === "yes" && (
+                    {petsAllowed === "1" && (
                         <div className="mt-2">
                             <div className="mb-2">
                                 <label className="form-label">Allowed Pets</label>
@@ -55,15 +55,17 @@ function PetAddendum({ showAmendments, toggleAmendment, petsAllowed, handlePetsA
                                     type="text"
                                     className="form-control"
                                     placeholder="e.g., cats, dogs under 25 lbs"
+                                    name="pet.requirement"
+                                    id="requirement"
                                 />
                             </div>
                             <div className="mb-2">
                                 <label className="form-label">Pet Deposit</label>
-                                <input type="number" name="petDesposit" id="petDesposit" className="form-control" />
+                                <input type="number" name="pet.pet_deposit" id="pet.pet_deposit" className="form-control" />
                             </div>
                             <div className="mb-2">
                                 <label className="form-label">Monthly Pet Rent</label>
-                                <input type="number" name="petRent" id="petRent" className="form-control" />
+                                <input type="number" name="pet.pet_monthly_rate" id="pet.pet_monthly_rate" className="form-control" />
                             </div>
                         </div>
                     )}

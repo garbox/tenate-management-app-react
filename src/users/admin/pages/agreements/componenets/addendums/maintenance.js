@@ -17,11 +17,11 @@ function MaintenanceAddendum({showAmendments, toggleAmendment }) {
                 <div className="ps-4 mt-2">
                     <div className="mb-2">
                         <label className="form-label">Tenant Responsibilities</label>
-                        <textarea name="tenantResp" id="tenantResp" className="form-control" rows="2" placeholder="e.g., yard care, pest control"></textarea>
+                        <textarea name="maintenance.tenant_responsibilities" id="tenant_responsibilities" className="form-control" rows="2" placeholder="e.g., yard care, pest control"></textarea>
                     </div>
                     <div className="mb-2">
                         <label className="form-label">Landlord Responsibilities</label>
-                        <textarea name="lordResp" id="lordResp" className="form-control" rows="2" placeholder="e.g., HVAC, structural repairs"></textarea>
+                        <textarea name="maintenance.land_lord_responsibilities" id="land_lord_responsibilities" className="form-control" rows="2" placeholder="e.g., HVAC, structural repairs"></textarea>
                     </div>
                 </div>
             )}
