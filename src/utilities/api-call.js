@@ -20,7 +20,7 @@ const ApiCalls = async ({ method, endpoint, token = null, payload = null, setIsL
   } 
   catch (error) {
     return {
-      message: error.response?.data?.message || error.message || 'Unknown error'
+      error: error.response?.data?.message || error.message || 'Unknown error'
     };
   } 
   finally {
