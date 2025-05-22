@@ -1,7 +1,7 @@
 import React from 'react';
 
-function RegisterForm ({ handleSubmit, responseData })  {
-  
+function RegisterForm({ handleSubmit, responseData, isLoading}) {
+
   return (
     <div className="container mt-5" style={{ maxWidth: '500px' }}>
       <div className="card">
@@ -58,11 +58,13 @@ function RegisterForm ({ handleSubmit, responseData })  {
                 name='passwordConfirm'
               />
             </div>
-            <button type="submit" className="btn btn-primary w-100">Register</button>
+            <button type="submit" className="btn btn-primary w-100" disabled={isLoading}>
+              {isLoading ? 'Saving...' : 'Register'}
+            </button>
           </form>
-          {responseData && (
+          {responseData.error && (
             <div className="mt-3 alert alert-danger">
-              {responseData}
+              {responseData.error}
             </div>
           )}
         </div>
