@@ -6,12 +6,11 @@ import LateFeeAddendum from "./addendums/late_fee";
 import MaintenanceAddendum from "./addendums/maintenance";
 import PetAddendum from "./addendums/pet";
 import LoadingData from "../../../../../utilities/loading_data";
+import { Link } from "react-router-dom";
 
 
 function LeaseForm({ tenant, properties, handleSubmit, responseData, isLoading }) {
 
-  console.log(responseData);
-  
   const [showAmendments, setShowAmendments] = useState({
     pet: false,
     maintenance: false,
@@ -138,16 +137,17 @@ function LeaseForm({ tenant, properties, handleSubmit, responseData, isLoading }
             Create
           </button>
         </form>
-        {responseData && (
-          responseData.message ? (
-            <div className="mt-3 alert alert-danger">
-              {responseData.message}
-            </div>
-          ) : (
+        {responseData.error && (
+          <div className="mt-3 alert alert-danger">
+            {responseData.error}
+          </div>
+        )}
+        {responseData.message && (
+          <Link to={`/admin/agreements/${responseData.data.id}`} className="btn btn-succuess"> 
             <div className="mt-3 alert alert-success">
-             Operation completed successfully.
+              {responseData.message} : Click this message to view agreement.
             </div>
-          )
+          </Link>
         )}
       </div>
     </div>
