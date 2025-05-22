@@ -10,16 +10,6 @@ function CreateAgreement() {
     const user = JSON.parse(sessionStorage.getItem("user"));
     const token = user.token;
 
-    const [showAmendments, setShowAmendments] = useState({
-        pet: false,
-        maintenance: false,
-        lateFee: false,
-        nonRenewal: false,
-        leadPaint: false,
-    });
-
-    const [petsAllowed, setPetsAllowed] = useState(null);
-
     useEffect(() => {
         const fetchTenantData = async () => {
             const method = 'GET';
@@ -52,7 +42,15 @@ function CreateAgreement() {
 
         const method = "POST";
         const endpoint = "agreement";
-        setResponseData(await ApiCall({ method, endpoint, token, payload, setIsLoading }));
+        const response = await ApiCall({ method, endpoint, token, payload, setIsLoading });
+
+        if(response.error){
+            setResponseData(response);
+        }
+        else{
+            setResponseData(response);
+            e.target.reset()
+        }
 
     };
     return (
