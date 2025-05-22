@@ -12,19 +12,17 @@ function LoginPage ({onUserChange}) {
     e.preventDefault(); // Prevent default form submission
     setIsSubmitting(true);
 
-    // Get input field values
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    // Define the method, URL, and data
     const method = 'POST';
     const endpoint = '/login';
     const payload = { email, password };
-
-    // Call the Ajax function and update the state with the response
+    
     const response = await ApiCall({method, endpoint, payload});
-    if (response.message) {
-      setResponseData(response.message);
+    
+    if (response.error) {
+      setResponseData(response);
       setIsSubmitting(false);
     } 
     else {

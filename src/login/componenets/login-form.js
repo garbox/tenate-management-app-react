@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from "react-router-dom";
 
 function LoginForm ({ handleSubmit, responseData, isSubmitting }) {
   return (
@@ -27,6 +27,7 @@ function LoginForm ({ handleSubmit, responseData, isSubmitting }) {
                 placeholder="Enter your password"
               />
             </div>
+
             {isSubmitting ?   
               <button className="btn btn-primary w-100" type="button" disabled>
                 <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
@@ -36,9 +37,10 @@ function LoginForm ({ handleSubmit, responseData, isSubmitting }) {
               <button type="submit" className="btn btn-primary w-100">Login</button>
             }
           </form>
-          {responseData && (
+          <div className="mt-3"> <Link to='/forgotpassword'>Forgot password?</Link></div>
+          {responseData.error && (
             <div className="mt-3 alert alert-danger">
-              {responseData}
+              {responseData.error}
             </div>
           )}
         </div>
