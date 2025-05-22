@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ApiCalls = async ({ method, endpoint, token = null, payload = null, setIsLoading = null }) => {
+const ApiCall = async ({ method, endpoint, token = null, payload = null, setIsLoading = null }) => {
   const apiUrl = process.env.REACT_APP_API_URL;
   const url = `${apiUrl.replace(/\/$/, '')}/${endpoint.replace(/^\//, '')}`;
 
@@ -20,7 +20,7 @@ const ApiCalls = async ({ method, endpoint, token = null, payload = null, setIsL
   } 
   catch (error) {
     return {
-      error: error.response?.data?.message || error.message || 'Unknown error'
+      error: error.response?.data?.error || 'Unknown error'
     };
   } 
   finally {
@@ -30,4 +30,4 @@ const ApiCalls = async ({ method, endpoint, token = null, payload = null, setIsL
   }
 };
 
-export default ApiCalls;
+export default ApiCall;
